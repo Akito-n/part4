@@ -1,19 +1,11 @@
+const dotenv = require('dotenv').config()
 const express = require('express')
 // const app = express()
 const app = require('./app.js')
 const cors = require('cors')
 const mongoose = require('mongoose')
 
-// const blogSchema = new mongoose.Schema({
-//   title: String,
-//   author: String,
-//   url: String,
-//   likes: Number
-// })
-
-// const Blog = mongoose.model('Blog', blogSchema)
-
-const mongoUrl = 'mongodb+srv://fullstack:akito1991@cluster0.vguvw.mongodb.net/note-app?retryWrites=true&w=majority'
+const mongoUrl = process.env.DB_URL
 mongoose.connect(mongoUrl, { useNewUrlParser: true, useUnifiedTopology: true })
 
 app.use(cors())
